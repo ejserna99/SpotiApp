@@ -1,0 +1,32 @@
+<!--Navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark">
+
+  <!-- Navbar brand -->
+  <div>
+    <a class="navbar-brand" href="#">
+      <img src="assets/img/banner-ico.png" height="30" alt="spotiapp logo">
+          SpotiApp
+        </a>
+  </div>
+
+  <!-- Collapse button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+    aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Collapsible content -->
+  <div class="collapse navbar-collapse" id="basicExampleNav">
+
+    <!-- Links -->
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" *ngFor="let ruta of rutas">
+        <a class="nav-link" [routerLink]="['/',ruta]" routerLinkActive="active bg-success">{{ ruta }}</a>
+      </li>
+    </ul>
+    <!-- Links -->
+  </div>
+  <!-- Collapsible content -->
+
+</nav>
+<!--/.Navbar-->

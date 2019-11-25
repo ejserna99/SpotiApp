@@ -1,0 +1,36 @@
+<div class="card-columns">
+  <!-- Card Narrower -->
+  <div *ngFor="let item of newLista" class="card card-cascade narrower">
+
+      <!-- Card image -->
+      <div class="view view-cascade overlay">
+        <img class="card-img-top" [src]="item.images[1].url" alt="Card image cap">
+        <a>
+          <div class="mask rgba-white-slight"></div>
+        </a>
+      </div>
+    
+      <!-- Card content -->
+      <div class="card-body card-body-cascade">
+    
+        <!-- Label -->
+        <h5 class="pink-text pb-2 pt-1"><i class="fas fa-album"></i> {{ item.album_type }}</h5>
+        <!-- Title -->
+        <h4 class="font-weight-bold card-title">{{ item.name }}</h4>
+        <!-- Text -->
+        <p class="card-text">
+            <span *ngFor="let artista of item.artists" class="badge badge-pill badge-info">{{ artista.name }}</span>
+        </p>
+        <!-- Button -->
+        <a class="btn btn-unique">Button</a>
+    
+      </div>
+    
+      <!-- Card footer -->
+      <div class="card-footer text-muted text-center">
+        {{ item.release_date }}
+      </div>
+    
+    </div>
+    <!-- Card Narrower -->
+</div>
