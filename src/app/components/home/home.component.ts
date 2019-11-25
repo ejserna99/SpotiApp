@@ -10,11 +10,11 @@ export class HomeComponent {
 
   newLista: any[] = [];
 
+  // tslint:disable-next-line:variable-name
   constructor( private _spotify: SpotifyService )
   {
-    this._spotify.getNewReleases().subscribe(arg => {
-      this.newLista = arg.albums.items;
-      console.log(arg.albums.items)
+    this._spotify.getNewReleases().subscribe( data => {
+      this.newLista = data;
     });
   }
 
