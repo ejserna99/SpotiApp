@@ -14,19 +14,24 @@ export class SpotifyService {
     return this.getQuery('browse/new-releases').pipe( map( data => data['albums'].items ) );
   }
 
-  getArtist( termino: string) {
-    return this.getQuery(`search?q=${ termino }&type=artist&limit=15`).pipe( map( data => data['artists'].items ) );
+  getArtist( artist: string) {
+    return this.getQuery(`search?q=${ artist }&type=artist&limit=15`).pipe( map( data => data['artists'].items ) );
   }
 
-  getArtistById( termino: string) {
-    return this.getQuery(`artists/${ termino }`);
+  getArtistById( id: string) {
+    return this.getQuery(`artists/${ id }`);
+  }
+
+  getTrackArtist( id: string) {
+    return this.getQuery(`artists/${ id }/top-tracks?country=es`);
   }
 
   getQuery( query: string ) {
     const url = `https://api.spotify.com/v1/${ query }`;
     const headers = new HttpHeaders({
-      Authorization: 'Bearer BQDzlULjyrL8a63aGEqO1nuZwQhIqgSbAn7-0a57qzMVEqb3g2KYi3VpFJJ-d8A9hmHxDm27VmOihVN1_yA'});
+      Authorization: 'Bearer BQADHL1L6LQrV2HxXZSwaBfoZgxqotljbup9pi5JQUxir-c9mOMxlfl7fWiKTSYhdH5TKh304GWuLWuWdro'});
 
     return this.http.get(url, { headers } );
   }
+
 }
