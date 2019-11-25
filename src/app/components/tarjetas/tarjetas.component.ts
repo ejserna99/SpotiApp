@@ -26,7 +26,7 @@ export class TarjetasComponent implements OnInit {
       id = artist.id;
     }
 
-    this.router.navigate(['/Artist/',id]);
+    this.router.navigate(['/Artist/', id]);
   }
 
 }
