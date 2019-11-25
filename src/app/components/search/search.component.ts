@@ -8,16 +8,23 @@ import { SpotifyService } from 'src/app/services/spotify.service';
 })
 export class SearchComponent {
 
+  lista: any;
+  loading = false;
+
+  // tslint:disable-next-line:variable-name
   constructor( private _spotify: SpotifyService ) { }
 
-  buscar( termino: string)
-  {
-    if ( termino.length > 0 )
-    {
+  buscar( termino: string) {
+    this.loading = true;
+    if ( termino.length > 0 ) {
       this._spotify.getArtist( termino ).subscribe(
         (res: any) => {
-          console.log(res);
+          this.loading = false;
+          this.lista = res;
       });
+    } else {
+      this.lista = [];
+      this.loading = false;
     }
   }
 

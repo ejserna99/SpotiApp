@@ -9,11 +9,14 @@ import { SpotifyService } from 'src/app/services/spotify.service';
 export class HomeComponent {
 
   newLista: any[] = [];
+  loading: boolean;
 
   // tslint:disable-next-line:variable-name
   constructor( private _spotify: SpotifyService )
   {
+    this.loading = true;
     this._spotify.getNewReleases().subscribe( data => {
+      this.loading = false;
       this.newLista = data;
     });
   }
