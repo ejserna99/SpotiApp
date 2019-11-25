@@ -15,7 +15,7 @@ export class SearchComponent {
     if ( termino.length > 0 )
     {
       this._spotify.getArtist( termino ).subscribe(
-        res => {
+        (res: any) => {
           console.log(res.artists.items);
       });
     }
